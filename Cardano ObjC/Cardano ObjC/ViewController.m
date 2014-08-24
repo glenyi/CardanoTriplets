@@ -34,11 +34,11 @@
         
         [self calculateTripletsWithLimit:limit completion:^(NSInteger count) {
             self.tripletsLabel.text = [NSString stringWithFormat:@"%li", count];
-            NSInteger seconds = -[timestamp timeIntervalSinceNow];
-            self.timeLabel.text = [NSString stringWithFormat:@"%li", seconds];
+            NSTimeInterval seconds = -[timestamp timeIntervalSinceNow];
+            self.timeLabel.text = [NSString stringWithFormat:@"%.2f", seconds];
             
             self.limitTextField.enabled = self.goButton.enabled = YES;
-            NSLog(@"Found %li triplets in %li seconds!", (long)count, (long)seconds);
+            NSLog(@"Found %li triplets in %.2f seconds!", (long)count, seconds);
         }];
     }
 }

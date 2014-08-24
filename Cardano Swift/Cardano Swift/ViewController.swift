@@ -43,12 +43,13 @@ class ViewController: UIViewController {
                     // Update triplets and time in seconds
                     self.tripletsLabel.text = "\(count)"
                     let seconds = -timestamp.timeIntervalSinceNow
-                    self.timeLabel.text = "\(Int(seconds))"
+                    let secondsString = NSString(format: "%.2f", seconds)
+                    self.timeLabel.text = "\(secondsString)"
                     
                     // UI updates
                     self.goButton.enabled = true
                     self.limitTextField.enabled = true
-                    println("Found \(count) triplets in \(Int(seconds)) seconds!")
+                    println("Found \(count) triplets in \(secondsString) seconds!")
                 } )
             }
         }
